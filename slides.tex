@@ -249,7 +249,7 @@
 
   \medskip
 
-  Such constraints are:
+  Some examples of these constraints are:
 
   \pause
 
@@ -258,8 +258,9 @@
     \item \texttt{rdfs:subClassOf} (subclass relationship between classes),
     \item \texttt{rdfs:subPropertyOf} (subproperty relationship between
       properties),
-    \item \texttt{rdfs:domain} (domain of a property) and
-    \item \texttt{rdfs:range} (range of a property).
+    \item \texttt{rdfs:domain} (domain of a property),
+    \item \texttt{rdfs:range} (range of a property),
+    \item etc.
   \end{itemize}
 \end{frame}
 
@@ -475,7 +476,30 @@
 \end{frame}
 
 \begin{frame}
+  \frametitle{OWL}
 
+  The \textit{Web Ontology Language}. Extends RDFS with many additional
+  constraints.
+
+  \pause
+
+  \medskip
+
+  Some examples of such constraints:
+
+  \pause
+
+  \begin{itemize}
+    \item \texttt{owl:disjointWith} (specifies class disjointness),
+    \item \texttt{owl:unionOf} (defines a class as a union of other classes),
+    \item \texttt{owl:intersectionOf} (defines a class as an intersection of
+      other classes),
+    \item \texttt{owl:minCardinality} (minimum cardinality of a relationship),
+    \item \texttt{owl:maxCardinality} (maximum cardinality of a relationship),
+    \item \texttt{owl:functionalProperty} (a property describes a mathematical function),
+    \item \texttt{owl:symmetricProperty} ($R(X, Y)$ implies $R(Y, X)$),
+    \item etc.
+  \end{itemize}
 \end{frame}
 
 \begin{frame}
