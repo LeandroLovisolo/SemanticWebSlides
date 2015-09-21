@@ -106,8 +106,6 @@
 \begin{frame}
   \frametitle{Web resources, URI, namespaces}
 
-  \pause
-
   A \textit{resource} is anything that can be referred to: a web page, a
   person, a city, a university course, etc.
 
@@ -164,8 +162,8 @@
 
   \medskip
 
-  A triplet is made of a \textit{subject}, an \textit{object} and a
-  \textit{predicate}.
+  A triplet is made of a \textit{subject}, a \textit{predicate} and an
+  \textit{object}.
 
   \pause
 
@@ -242,23 +240,270 @@
 \end{frame}
 
 \begin{frame}
-  \frametitle{}
+  \frametitle{RDFS}
+
+  The \textit{schema language} for RDF. Allows specifying constraints on
+  individuals and relationships used in RDF.
+
+  \pause
+
+  \medskip
+
+  Such constraints are:
+
+  \pause
+
+  \begin{itemize}
+    \item \texttt{rdf:type} (used to specify class membership of an individual),
+    \item \texttt{rdfs:subClassOf} (subclass relationship between classes),
+    \item \texttt{rdfs:subPropertyOf} (subproperty relationship between
+      properties),
+    \item \texttt{rdfs:domain} (domain of a property) and
+    \item \texttt{rdfs:range} (range of a property).
+  \end{itemize}
 \end{frame}
 
 \begin{frame}
-  \frametitle{}
+  \frametitle{RDFS}
+  \framesubtitle{\texttt{rdf:type}}
+
+  Used to specify class membership.
+
+  \pause
+
+  \bigskip
+
+  Syntax: \triplet{i rdf:type C}.
+
+  \pause
+
+  \medskip
+
+  First-order logic translation: $C(i)$.
+
+  \pause
+
+  \bigskip
+
+  Examples:
+
+  \begin{itemize}
+    \item \triplet{:Dupond rdf:type :AcademicStaff}
+    \item \triplet{:Pierre rdf:type :MasterStudent}
+  \end{itemize}
 \end{frame}
 
 \begin{frame}
-  \frametitle{}
+  \frametitle{RDFS}
+  \framesubtitle{\texttt{rdfs:subClassOf}}
+
+  Used to specify subclass relationships between classes.
+
+  \pause
+
+  \bigskip
+
+  Syntax: \triplet{C rdfs:subClassOf D}.
+
+  \pause
+
+  \medskip
+
+  First-order logic translation: $\forall X (C(X) \implies D(X))$.
+
+  \pause
+
+  \bigskip
+
+  Example:
+
+  \begin{itemize}
+    \item \triplet{:MasterStudent rdfs:subClassOf :Student}
+  \end{itemize}
+
+  \pause
+
+  Usage example:
+
+  \begin{itemize}
+    \item \triplet{:Pierre rdf:type :MasterStudent}
+  \end{itemize}
+
+  \pause
+
+  Which implies:
+
+  \begin{itemize}
+    \item \triplet{:Pierre rdf:type :Student}
+  \end{itemize}
 \end{frame}
 
 \begin{frame}
-  \frametitle{}
+  \frametitle{RDFS}
+  \framesubtitle{\texttt{rdfs:subPropertyOf}}
+
+  Used to specify subproperty relationships between properties.
+
+  \pause
+
+  \bigskip
+
+  Syntax: \triplet{P rdfs:subPropertyOf R}.
+
+  \pause
+
+  \medskip
+
+  First-order logic translation: $\forall X \forall Y (P(X, Y) \implies
+                                                       R(X, Y))$.
+
+  \pause
+
+  \bigskip
+
+  Example:
+
+  \begin{itemize}
+    \item \triplet{:LateRegisteredTo rdfs:subPropertyOf :RegisteredTo}
+  \end{itemize}
+
+  \pause
+
+  Usage example:
+
+  \begin{itemize}
+    \item \triplet{:Alice :LateRegisteredTo :UE111}
+  \end{itemize}
+
+  \pause
+
+  Which implies:
+
+  \begin{itemize}
+    \item \triplet{:Alice :RegisteredTo :UE111}
+  \end{itemize}
 \end{frame}
 
 \begin{frame}
-  \frametitle{}
+  \frametitle{RDFS}
+  \framesubtitle{\texttt{rdfs:domain}}
+
+  Used to specify the domain of a property.
+
+  \pause
+
+  \bigskip
+
+  Syntax: \triplet{P rdfs:domain C}.
+
+  \pause
+
+  \medskip
+
+  First-order logic translation: $\forall X \forall Y (P(X, Y) \implies C(X))$.
+
+  \pause
+
+  \bigskip
+
+  Example:
+
+  \begin{itemize}
+    \item \triplet{:TeachesTo rdfs:domain :AcademicStaff}
+  \end{itemize}
+
+  \pause
+
+  Usage example:
+
+  \begin{itemize}
+    \item \triplet{:Dupond :TeachesTo :Pierre}
+  \end{itemize}
+
+  \pause
+
+  Which implies:
+
+  \begin{itemize}
+    \item \triplet{:Dupond rdf:type :AcademicStaff}
+  \end{itemize}
+\end{frame}
+
+\begin{frame}
+  \frametitle{RDFS}
+  \framesubtitle{\texttt{rdfs:range}}
+
+  Used to specify the range of a property.
+
+  \pause
+
+  \bigskip
+
+  Syntax: \triplet{P rdfs:range D}.
+
+  \pause
+
+  \medskip
+
+  First-order logic translation: $\forall X \forall Y (P(X, Y) \implies D(Y))$.
+
+  \pause
+
+  \bigskip
+
+  Example:
+
+  \begin{itemize}
+    \item \triplet{:TeachesTo rdfs:range :Student}
+  \end{itemize}
+
+  \pause
+
+  Usage example:
+
+  \begin{itemize}
+    \item \triplet{:Dupond :TeachesTo :Pierre}
+  \end{itemize}
+
+  \pause
+
+  Which implies:
+
+  \begin{itemize}
+    \item \triplet{:Pierre rdf:type :Student}
+  \end{itemize}
+\end{frame}
+
+\begin{frame}
+
+\end{frame}
+
+\begin{frame}
+
+\end{frame}
+
+\begin{frame}
+
+\end{frame}
+
+\begin{frame}
+
+\end{frame}
+
+\begin{frame}
+
+\end{frame}
+
+\begin{frame}
+
+\end{frame}
+
+\begin{frame}
+
+\end{frame}
+
+\begin{frame}
+
 \end{frame}
 
 \begin{frame}
